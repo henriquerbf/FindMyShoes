@@ -3,7 +3,7 @@
 
 I did an python app to initialize with windows that will notify me when the pair of shoes that I want is avaiable.
 
--The notification will be sent through windows notifications!
+-The notification will be sent through windows notifications with a url configured, so if you click at the notification you will be redirectly to the site.
 
 -The link of the shoes shoud be configured as the example below:
 shoesUrl = "linkoftheshoe.com"
