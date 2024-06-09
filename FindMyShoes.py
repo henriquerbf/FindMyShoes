@@ -20,14 +20,13 @@ def FindYourVansBySize(size, shoesUrl):
             # Turning the content into a json object
             VansJson = response.text[begin: end]
             jsonFromText = json.loads(VansJson)
-            baseOptions = jsonFromText['props']['pageProps']['product']['baseOptions']
+            baseOptions = jsonFromText['props']['pageProps']['product']['variantOptions']
             
             # replacing "'" just to easily format on my text editor#
             # print(str(baseOptions).replace("'", '"' )) 
-
             for item in baseOptions:
-                if item['variantType'] == "SizeVariantProduct":
-                    if item['selected']['stock']['stockLevelStatus'] == "inStock":
+                if int(item['displayText']) == size:
+                    if item['sellable'] == True:
                         return("Size " + str(size) + ": Cheguei!!!"), True
                     else:
                         return("Size " + str(size) + ": Não foi desta vez... :C"), False
