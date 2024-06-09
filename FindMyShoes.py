@@ -47,6 +47,8 @@ def report(message):
 
 
 shoesUrl = "Link Here"
+shoesSize= 39
+searchInterval = 300 #value should be in milliseconds
 avaiable = False
 
 # Core
@@ -56,7 +58,7 @@ print("Starting to look for your shoes!")
 while not avaiable:
     # Clear the terminal
 
-    msg, avaiable = FindYourVansBySize(39, shoesUrl)
+    msg, avaiable = FindYourVansBySize(shoesSize, shoesUrl)
 
     if avaiable:
         WindowsNotify(msg, "Click here to buy it!", shoesUrl)
@@ -64,4 +66,4 @@ while not avaiable:
     else:
         report("Didn't find it yet, sorry :\ ")
 
-    time.sleep(300)
+    time.sleep(searchInterval)
